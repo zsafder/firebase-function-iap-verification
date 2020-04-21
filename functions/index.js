@@ -109,7 +109,7 @@ function validateRequest(body) {
     .then(() => iap.validate(serviceType, body.receipt));
 }
 
-exports.verifyInappPurchase = functions.https.onRequest((request, response)  => {
+exports.verifyInAppPurchase = functions.https.onRequest((request, response)  => {
     let transactionId = request.body.transactionId;
     checkTranscationId(transactionId)
     .then(() => saveTransactionId(transactionId))

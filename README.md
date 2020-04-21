@@ -72,4 +72,35 @@ You have two option here
 2. Project Firebase Application Id in _.firebaserc_ json under _'default'_ key
 
 ### That is it! Deploy on Firebase Function
+
+## Usage Instructions
+### Url
+    <firebase_function_baseurl>/verifyInAppPurchase
+### Method
+    POST
+### Header
+    Content-Type: application/json
+### Params
+    type=[string]
+    transactionId=[string]
+    receipt=[string|json] (refer https://github.com/voltrue2/in-app-purchase for detail)
+### Success Response
+    Code: 200
+    Content: Verified
+### Error Response
+    Code: 400
+    Content: Invalid Request | Duplicate Transaction | Invalid TransactionId | Item is Canelled
+### Sample Format iOS
+```
+curl --location --request POST 'https://<firebase_function_baseurl>/verifyInAppPurchase' \
+--header 'Content-Type: application/json' \
+--data-raw '{"receipt":"<recipt>", "transactionId":"<transcation_id>", "type":"<type>"}'
+```
+### Sample Format Android
+```
+curl --location --request POST 'https://<firebase_function_baseurl>/verifyInAppPurchase' \
+--header 'Content-Type: application/json' \
+--data-raw '{"receipt":{"packageName": <package_name>, "productId": <product_id>, "purchaseToken":<purchase_token>}, "transactionId":"<purchase_token>", "type":"<type>"}'
+```
+
 ## Happy Coding
