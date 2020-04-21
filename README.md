@@ -81,7 +81,7 @@ You have two option here
 ### Header
     Content-Type: application/json
 ### Params
-    type=[string]
+    type=[string] (apple/google)
     transactionId=[string]
     receipt=[string|json] (refer https://github.com/voltrue2/in-app-purchase for detail)
 ### Success Response
@@ -94,13 +94,13 @@ You have two option here
 ```
 curl --location --request POST 'https://<firebase_function_baseurl>/verifyInAppPurchase' \
 --header 'Content-Type: application/json' \
---data-raw '{"receipt":"<recipt>", "transactionId":"<transcation_id>", "type":"<type>"}'
+--data-raw '{"receipt":"<recipt>", "transactionId":"<transcation_id>", "type":"apple"}'
 ```
 ### Sample Format Android
 ```
 curl --location --request POST 'https://<firebase_function_baseurl>/verifyInAppPurchase' \
 --header 'Content-Type: application/json' \
---data-raw '{"receipt":{"packageName": <package_name>, "productId": <product_id>, "purchaseToken":<purchase_token>}, "transactionId":"<purchase_token>", "type":"<type>"}'
+--data-raw '{"receipt":{"packageName": <package_name>, "productId": <product_id>, "purchaseToken":<purchase_token>}, "transactionId":"<purchase_token>", "type":"google"}'
 ```
 
 ## Happy Coding
